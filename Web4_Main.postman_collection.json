@@ -1,0 +1,694 @@
+{
+	"info": {
+		"_postman_id": "55bacf7f-ac61-4c58-98df-9f2dbf0ba471",
+		"name": "Web4_Main",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25986593"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Regrister",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"hello\",\r\n    \"name\": \"Hello World\",\r\n    \"email\": \"nodejs@test.com\",\r\n    \"phone\":\"555-5555\",\r\n    \"password\": \"12345678\",\r\n    \"repeatPassword\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//user\r\n// {\r\n//     \"username\": \"hello\",\r\n//     \"password\": \"123456\"\r\n// }\r\n\r\n//admin\r\n{\r\n    \"username\": \"Buituan\",\r\n    \"password\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJidWl0dWFuIiwiaWF0IjoxNjgyMjE5MTA3LCJleHAiOjE2ODIyNDA3MDd9.TslTJkmafbcii9E97BSy8NOMntLv4E3dL7aV5mZinPA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJidWl0dWFuIiwiaWF0IjoxNjgyMjE4ODc0LCJleHAiOjE2ODIyNDA0NzR9.4uJ42zg6suYfZF1VLGLjeRXVH3WqUJ5b6YPKN9T-sWc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/user/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJidWl0dWFuIiwiaWF0IjoxNjgyMjIxMTc2LCJleHAiOjE2ODIyNDI3NzZ9.KUqhUQOtlum0l2Bf9cG3jPoIURDFoh3BwabC3IQvYm4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Buituan\",\r\n    \"name\": \"Bui Trung Tuan\",\r\n    \"email\": \"buituan@example.com\",\r\n    \"password\": \"123456789\",\r\n    \"roles\": 2,\r\n    \"phone\": \"555-9989\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJoZWxsbyIsImlhdCI6MTY4MjIyMTEwOCwiZXhwIjoxNjgyMjQyNzA4fQ.AfzZQHfDf3rDxRWEbP7Dy4BP9GYHYBIgT7KoNG-tphE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jane Smith\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJidWl0dWFuIiwiaWF0IjoxNjgyMjIxMTc2LCJleHAiOjE2ODIyNDI3NzZ9.KUqhUQOtlum0l2Bf9cG3jPoIURDFoh3BwabC3IQvYm4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/user/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shoe",
+			"item": [
+				{
+					"name": "Get All Shoes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJoZWxsbyIsImlhdCI6MTY4MjA2MzQ1MywiZXhwIjoxNjgyMDg1MDUzfQ.cajMMGDWWANzYbfgYSLL3qIV6_uQECGGoLbdAcPXIUk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/shoe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"shoe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Shoe by Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJoZWxsbyIsImlhdCI6MTY4MjA2MzQ1MywiZXhwIjoxNjgyMDg1MDUzfQ.cajMMGDWWANzYbfgYSLL3qIV6_uQECGGoLbdAcPXIUk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/shoe/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"shoe",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Shoe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJidWl0dWFuIiwiaWF0IjoxNjgyMjIxMTc2LCJleHAiOjE2ODIyNDI3NzZ9.KUqhUQOtlum0l2Bf9cG3jPoIURDFoh3BwabC3IQvYm4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Air Jordan 11\",\r\n    \"brand\": \"Nike\",\r\n    \"type\": \"Sneakers\",\r\n    \"color\": \"Green\",\r\n    \"imageS\":\"img.png\",\r\n    \"images\":[\"img1.png\", \"img2.png\", \"img3.png\"] ,\r\n    \"sizeS\":6,\r\n    \"size\": [6, 4, 7, 8],\r\n    \"price\": 119.99,\r\n    \"quantity\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/shoe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"shoe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Shoe",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJoZWxsbyIsImlhdCI6MTY4MjA2MzQ1MywiZXhwIjoxNjgyMDg1MDUzfQ.cajMMGDWWANzYbfgYSLL3qIV6_uQECGGoLbdAcPXIUk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"color\": \"blue\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/shoe/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"shoe",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Shoe",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJoZWxsbyIsImlhdCI6MTY4MjA2MzQ1MywiZXhwIjoxNjgyMDg1MDUzfQ.cajMMGDWWANzYbfgYSLL3qIV6_uQECGGoLbdAcPXIUk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/shoe/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"shoe",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Get All Review",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJoZWxsbyIsImlhdCI6MTY4MjA2MzQ1MywiZXhwIjoxNjgyMDg1MDUzfQ.cajMMGDWWANzYbfgYSLL3qIV6_uQECGGoLbdAcPXIUk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/review",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Review by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJoZWxsbyIsImlhdCI6MTY4MjA2MzQ1MywiZXhwIjoxNjgyMDg1MDUzfQ.cajMMGDWWANzYbfgYSLL3qIV6_uQECGGoLbdAcPXIUk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/review/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"review",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Review",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJoZWxsbyIsImlhdCI6MTY4MjA2MzQ1MywiZXhwIjoxNjgyMDg1MDUzfQ.cajMMGDWWANzYbfgYSLL3qIV6_uQECGGoLbdAcPXIUk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"review\": \"nice\",\r\n    \"rating\": 4,\r\n    \"userId\": 2,\r\n    \"shoeId\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/review",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Review",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJoZWxsbyIsImlhdCI6MTY4MjA2MzQ1MywiZXhwIjoxNjgyMDg1MDUzfQ.cajMMGDWWANzYbfgYSLL3qIV6_uQECGGoLbdAcPXIUk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"review\": \"Nice shoe.\",\r\n    \"rating\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/review/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"review",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Review",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJoZWxsbyIsImlhdCI6MTY4MjA2MzQ1MywiZXhwIjoxNjgyMDg1MDUzfQ.cajMMGDWWANzYbfgYSLL3qIV6_uQECGGoLbdAcPXIUk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/review/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"review",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Get All Order",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJoZWxsbyIsImlhdCI6MTY4MjA2MzQ1MywiZXhwIjoxNjgyMDg1MDUzfQ.cajMMGDWWANzYbfgYSLL3qIV6_uQECGGoLbdAcPXIUk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJoZWxsbyIsImlhdCI6MTY4MjA2MzQ1MywiZXhwIjoxNjgyMDg1MDUzfQ.cajMMGDWWANzYbfgYSLL3qIV6_uQECGGoLbdAcPXIUk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/order/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"order",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJoZWxsbyIsImlhdCI6MTY4MjA2MzQ1MywiZXhwIjoxNjgyMDg1MDUzfQ.cajMMGDWWANzYbfgYSLL3qIV6_uQECGGoLbdAcPXIUk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": 2,\r\n    \"shoes_id\": 5,\r\n    \"quantity\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJoZWxsbyIsImlhdCI6MTY4MjA2MzQ1MywiZXhwIjoxNjgyMDg1MDUzfQ.cajMMGDWWANzYbfgYSLL3qIV6_uQECGGoLbdAcPXIUk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/order/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"order",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJoZWxsbyIsImlhdCI6MTY4MjA2MzQ1MywiZXhwIjoxNjgyMDg1MDUzfQ.cajMMGDWWANzYbfgYSLL3qIV6_uQECGGoLbdAcPXIUk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/order/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"order",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

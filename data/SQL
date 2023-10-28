@@ -1,0 +1,129 @@
+USE master;
+
+drop database shoe_management
+
+CREATE DATABASE shoe_management;
+
+USE shoe_management;
+
+
+CREATE TABLE shoes (
+  id INT identity(1,1) PRIMARY KEY ,
+  name VARCHAR(200) NOT NULL UNIQUE,
+  brand VARCHAR(50) NOT NULL,
+  type VARCHAR(50) NOT NULL,
+  color VARCHAR(20) NOT NULL,
+  imageS varchar (200) not null,
+  sizeS INT NOT NULL,
+  price DECIMAL(10,2) NOT NULL,
+  quantity INT NOT NULL,
+  createAt date not null
+);
+create table size(
+	shoe_id int foreign key references shoes(id),
+	size int 
+);
+create table img(
+	shoe_id int foreign key references shoes(id),
+	img varchar(200) 
+);
+create table roles
+(
+    id int primary key not null,
+    name  varchar(200) not null unique,
+);
+CREATE TABLE users (
+  id INT identity(1,1) PRIMARY KEY,
+  username varchar(200) not null unique,
+  name VARCHAR(200) NOT NULL , 
+  email VARCHAR(200) NOT NULL unique,
+  password VARCHAR(200) NOT NULL,
+  phone VARCHAR(20) NOT NULL unique,
+  roles int foreign key references roles(id) default 1 not null,
+  createAt date not null
+);
+
+
+CREATE TABLE orders (
+  id int identity(1,1) PRIMARY KEY not null,
+  user_id int FOREIGN KEY REFERENCES users(id),
+  shoes_id int FOREIGN KEY REFERENCES shoes(id),
+  quantity int,
+  date_ordered datetime
+);
+
+create table review
+(
+  id        int identity (1,1) primary key            not null,
+  review    varchar(max)                              not null,
+  rating    int CHECK (rating >= 0 AND rating <= 5),
+  shoeId    int foreign key references shoes (id) not  null,
+  userId    int foreign key references users (id) not null,
+  createdAt datetime default CURRENT_TIMESTAMP        not null,
+)
+
+INSERT INTO shoes  VALUES 
+('Nike Revolution 6 Next Nature' , 'Nike', 'Running', 'Black', 'img.png', 8, 99.99, 10,'2020-01-02'),
+('Donovan Mitchell' ,'Adidas', 'Basketball', 'White', 'img.png', 10, 109.99, 15,'2020-01-02'),
+('Basket Classic 75Y Sneakers' ,'Puma', 'Sneakers', 'Red', 'img.png', 9, 89.99, 8,'2020-01-02'),
+('Puma MB.01' ,'Puma', 'Sneakers', 'Red', 'img.png', 9, 69.99, 8,'2020-01-02'),
+('Nike Air Force 1`07' ,'Nike', 'Sneakers', 'White', 'img.png', 10, 100.99, 8,'2021-01-03'),
+('Air Jordan 1 Mid SE' ,'Nike', 'Sneakers', 'Blue', 'img.png', 9, 119.99, 8,'2022-01-02')
+
+ insert into Roles values
+(1, 'user'), 
+(2, 'admin')
+
+INSERT INTO users VALUES 
+ ('johndoe','John Doe', 'johndoe@example.com',    '$2a$10$/mGhg5/BKrb9.4zDlxljf.L8N19cR0xSTKvMMC6RYwyvaET15sp.6', '555-1234','1','2020-08-02'),
+ ('janesmith','Jane Smith', 'janesmith@example.com','$2a$10$/mGhg5/BKrb9.4zDlxljf.L8N19cR0xSTKvMMC6RYwyvaET15sp.6', '555-5678','1','2020-08-02'),
+ ('bobjonson','Bob Johnson', 'bjohnson@example.com','$2a$10$/mGhg5/BKrb9.4zDlxljf.L8N19cR0xSTKvMMC6RYwyvaET15sp.6', '555-9012' ,'1','2020-08-02'),
+ ('buituan','Bui Trung Tuan', 'buituan@example.com','$2a$10$zVzaJx1FOS.hV1pSLSbJH.DIia6WQJQcHf.G1OztfSuuQtTcWR6TC', '555-9999' ,'2','2019-08-02')
+
+
+
+insert into size values (1,9),(1,4),(1,5),(1,6),(1,5.5),(1,8),(1,6.5),(2,9),(2,4),(2,5),(2,6),(2,5.5),(2,8),(2,6.5),(3,9),(3,4),(3,5),(3,6),(3,5.5),(3,8),(3,6.5),(4,9),(4,4),(4,5),(4,6),(4,5.5),(4,8),(4,6.5),(5,9),(5,4),(5,5),(5,6),(5,5.5),(5,8),(5,6.5),(6,9),(6,4),(6,5),(6,6),(6,5.5),(6,8),(6,6.5)
+
+insert into img values 
+(1,'img.png'),
+(1,'img.png'),
+(1,'img.png'),
+(1,'img.png'),
+(1,'img.png'),
+(2,'img.png'),
+(2,'img.png'),
+(2,'img.png'),
+(2,'img.png'),
+(3,'img.png'),
+(3,'img.png'),
+(3,'img.png'),
+(3,'img.png'),
+(3,'img.png'),
+(4,'img.png'),
+(4,'img.png'),
+(4,'img.png'),
+(4,'img.png'),
+(4,'img.png'),
+(5,'img.png'),
+(5,'img.png'),
+(5,'img.png'),
+(5,'img.png'),
+(5,'img.png'),
+(6,'img.png'),
+(6,'img.png'),
+(6,'img.png'),
+(6,'img.png'),
+(6,'img.png')
+
+insert into review values
+('Really happy with my prompt delivery as this was a gift. My son was extremely happy with his shoes.',5,2,1,'2020-08-02'),
+('I bought it for a friend and he loved the wears them every day!',5,1,1,'2020-08-02'),
+('Really happy with the purchase, super comfy and easy to match with most outfits',5,3,3,'2020-08-02')
+
+insert into orders values 
+(1,2,1,'2020-08-02'),
+(1,1,1,'2020-08-02'),
+(3,3,1,'2020-08-02')
+
+select * from users
+select * from img where img.shoe_id = 17
